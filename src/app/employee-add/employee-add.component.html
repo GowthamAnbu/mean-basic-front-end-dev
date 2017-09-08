@@ -1,0 +1,16 @@
+<form (ngSubmit)="saveEmployeeDetails()"  #employeeForm="ngForm">
+    <div>
+        <label for="firstName">First Name: </label>
+        <input type="text" name="firstName" required [(ngModel)]="newEmployee.firstName" #firstName="ngModel">
+    </div>
+    <div>
+        <label for="lastName">Last Name: </label>
+        <input type="text" name="lastName" required [(ngModel)]="newEmployee.lastName" #lastName="ngModel">
+    </div>
+    <div>
+        <label for="dob">Date Of Birth: </label>
+        <input type="text" name="dob" required [(ngModel)]="newEmployee.dob" #dob="ngModel">
+    </div>
+    <button type="submit" [disabled]="!employeeForm.form.valid">save</button>
+</form>
+<button (click)="redirect()">cancel</button>
