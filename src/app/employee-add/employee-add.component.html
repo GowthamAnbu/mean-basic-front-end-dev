@@ -1,25 +1,16 @@
 <form #employeeForm="ngForm">
-    <div>
-        <label for="firstName">First Name: </label>
-        <input type="text" name="firstName" required [(ngModel)]="newEmployee.firstName" #firstName="ngModel">
+    <div class="form-group">
+      <label for="firstName" class="col-form-label">First Name:</label>
+      <input type="text" class="form-control" name="firstName" placeholder="eg.Nick" required [(ngModel)]="newEmployee.firstName" #firstName="ngModel">
     </div>
-    <p [hidden]="firstName.valid || firstName.pristine" class="text-primary">
-        you must have a name buddy !
-    </p>
-    <div>
-        <label for="lastName">Last Name: </label>
-        <input type="text" name="lastName" required [(ngModel)]="newEmployee.lastName" #lastName="ngModel">
-    </div>
-    <div [hidden]="lastName.valid || lastName.pristine" class="error">
-        you must have a name buddy !
-    </div>
-    <div>
-        <label for="dob">Date Of Birth: </label>
-        <input type="text" name="dob" required [(ngModel)]="newEmployee.dob" #dob="ngModel">
-    </div>
-    <div [hidden]="dob.valid || dob.pristine" class="error">
-        you must have a name buddy !
-    </div>
-    <button (click)="saveEmployeeDetails()" [disabled]="!employeeForm.form.valid">save</button>
+  <div class="form-group">
+    <label for="lastName" class="col-form-label">Last Name:</label>
+    <input type="text" class="form-control" name="lastName" placeholder="eg.jackson"  required [(ngModel)]="newEmployee.lastName" #lastName="ngModel">
+  </div>
+  <div class="form-group">
+    <label for="dob" class="col-form-label">Date of Birth</label>
+    <input type="date" class="form-control" name="dob" placeholder="1984-12-04" required [(ngModel)]="newEmployee.dob" #dob="ngModel">
+  </div>
+<button type="button" class="btn btn-success" (click)="saveEmployeeDetails()" [disabled]="!employeeForm.form.valid">save</button>
+<button type="button" class="btn btn-success" [routerLink]="['/home']">cancel</button>
 </form>
-<button [routerLink]="['/home']">cancel</button>

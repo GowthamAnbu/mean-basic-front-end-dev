@@ -22,8 +22,5 @@ export class EmployeeDetailsComponent implements OnInit {
       console.log('Something went wrong!');
     });
   }
-
-  // getEmployees(): void {
-  //   this.employeeService.getEmployees().then(employees => this.employee=employees);
-  // }
+  
 }

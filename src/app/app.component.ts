@@ -6,6 +6,6 @@ import { EmployeeService } from "./employee.service";
   styleUrls: ['./app.component.css'],
   providers:[EmployeeService]
 })
-export class AppComponent {
+export class AppComponent{
   title = 'app';
 }
