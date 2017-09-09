@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from "../employee";
 import { Router } from "@angular/router";
+import { EmployeeService } from "../employee.service";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-employee-details',
@@ -8,20 +10,20 @@ import { Router } from "@angular/router";
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent implements OnInit {
-  employee:Employee[]=[
-    {firstName:'Merrick',lastName:'Baliton',dob:'04-10-1995'},
-    {firstName:'Nick',lastName:'Cole',dob:'01-01-1995'},
-    {firstName:'Jack',lastName:'Rickson',dob:'12-12-1995'}
-  ]
-  constructor(private router: Router) { }
+  employee: Employee[];
+  constructor(private router: Router, private employeeService:EmployeeService,private http:HttpClient) { }
 
   ngOnInit() {
+    // this.getEmployees();
+    this.http.get<Employee[]>('http://localhost:3030/home').subscribe(data => {
+      // Read the result field from the JSON response.
+      this.employee = data;
+    },err => {
+      console.log('Something went wrong!');
+    });
   }
 
-  reRoute(){
-    console.log('working');
-    let link = ['/addemployee'];
-    this.router.navigate(link);
-  }
-
+  // getEmployees(): void {
+  //   this.employeeService.getEmployees().then(employees => this.employee=employees);
+  // }
 }

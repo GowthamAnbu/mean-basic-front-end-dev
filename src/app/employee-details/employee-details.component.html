@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-inverse">
   <th>First Name</th>
   <th>Last Name</th>
   <th>Date of Birth</th>
@@ -8,6 +8,4 @@
   <td>{{employee.dob}}</td>
   </tr>
 </table>
-<form (ngSubmit)="reRoute()">
-<button type="submit" >Add Employee</button>
-</form>
+<button class="bg-primary" [routerLink]="['/addemployee']">Add Employee</button>

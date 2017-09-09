@@ -5,7 +5,7 @@ import { EmployeeDetailsComponent } from "./employee-details/employee-details.co
 import { EmployeeAddComponent } from "./employee-add/employee-add.component";
 // Route config let's you map routes to components
 const routes: Routes = [
-  // map '/home' to the people list component
+  // map '/home' to the employee list component
   {
     path: 'home',
     component: EmployeeDetailsComponent,
@@ -13,7 +13,7 @@ const routes: Routes = [
     path: 'addemployee',
     component:EmployeeAddComponent
   },
-  // map '/' to '/persons' as our default route
+  // map '/' to '/home' as our default route
   {
     path: '',
     redirectTo: '/home',
